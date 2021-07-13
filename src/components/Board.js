@@ -8,6 +8,19 @@ import GameOverlay from "./GameOverlay";
 const BoardView = () => {
   const [board, setBoard] = useState(new Board());
 
+  const up = () => {
+    if (board.hasWon()) {
+      return;
+    }
+    let direction = 38;
+    let boardClone = Object.assign(
+      Object.create(Object.getPrototypeOf(board)),
+      board
+    );
+    let neweBoard = boardClone.move(direction);
+    setBoard(neweBoard);
+  };
+
   const handleKeyDown = (event) => {
     if (board.hasWon()) {
       return;
@@ -60,6 +73,31 @@ const BoardView = () => {
         {cells}
         {tiles}
         <GameOverlay onRestart={resetGame} board={board} />
+      </div>
+      <div>
+        <button onClick={up}>↑</button>
+
+        <br />
+
+        {/* <button onClick="left()">←</button>
+
+        <button onClick="right()">→</button>
+
+        <br />
+
+        <button onClick="down()">↓</button>
+
+        <br /> */}
+        <div className="credits">
+          <p style={{ display: "inline" }}>Motion Graphics By: </p>
+
+          <a
+            href="https://www.behance.net/romaincousin"
+            style={{ color: "white", textTransform: "uppercase" }}
+          >
+            Romain Cousin
+          </a>
+        </div>
       </div>
     </div>
   );

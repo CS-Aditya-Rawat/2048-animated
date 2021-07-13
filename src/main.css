@@ -52,6 +52,15 @@ body {
   background-color: #d3386a;
   color: rgba(255, 255, 255, 1);
 }
+.credits {
+  background-color: #d3386a;
+  margin-top: 150px;
+  cursor: pointer;
+  font-size: 25px;
+  padding: 10px 20px;
+  border-radius: 7px;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
 .score-header {
   font-size: 50%;
 }
